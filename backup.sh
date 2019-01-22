@@ -8,7 +8,7 @@ EXPORT_DIR="/home/will/Dropbox/Paperless Backups"   # Directory where the backup
 PRESERVE_COUNT=3   # Number of backups to keep
 
 # Activate virtualenv
-. /opt/paperless/bin/activate
+. /opt/paperless/venv/bin/activate
 
 echo Export files
 filename="paperless-backup-$(date +'%Y-%m-%d %H.%M.%S')"
@@ -46,6 +46,6 @@ then
         # Delete extra backups
         for backup in "${to_delete[@]}";
         do
-                rm "$EXPORT_DIR/$backup"
+                rm -f "$EXPORT_DIR/$backup"
         done
 fi
